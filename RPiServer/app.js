@@ -13,10 +13,17 @@ app.use('/', express.static(path.join(__dirname, 'stream')));
 
 app.get('/', function(req, res) {
 	//res.sendFile(__dirname + '/index.html');
-	var io = require('socket.io').listen(server);
-	var sockets = {};
+	/*var io = require('socket.io').listen(server);
+	var sockets = {};*/
 
-	var authOptions = {
+	var args = ["-rot" "180" "-o" "-" "-t" "0" "-hf" "-w" "800" "-h" "400" "-fps" "24" "|cvlc" "-vvv" "stream:///dev/stdin" "--sout" "'#standard{access=http,mux=ts,dst=:8160}'" ":demux=h264"];
+	var stream = spawn('raspivid', args);
+
+	stream.stdout.on('data', function (data) {
+		console.log(data);
+	});
+
+	/*var options = {
 	    url: '45.56.97.252/streamtv',
 	    form: {
 	      get_stream: "data"
@@ -24,7 +31,16 @@ app.get('/', function(req, res) {
 	    json: true
 	};
 
-	io.sockets.on('connection', function (socket) {
+	request.get(options, function(error, response, body) {
+      if (!error && response.statusCode === 200) {
+      	console.log("Connected");
+      } 
+      else {
+        console.log("No connection");
+      }
+    });*/
+
+	/*io.sockets.on('connection', function (socket) {
 		sockets[socket.id] = socket;
 		console.log("Total clients connected : ", Object.keys(sockets).length);
 		
@@ -40,10 +56,10 @@ app.get('/', function(req, res) {
 		socket.on('start-stream', function() {
 			startStreaming(io);
 		});
-	});
+	});*/
 });
 
-http.listen(3000, function() {
+/*http.listen(3000, function() {
 	console.log('listening on *:3000');
 });
 
@@ -61,7 +77,7 @@ function startStreaming(io) {
 		return;
 	}
 	
-	var args = ["-w", "640", "-h", "480", "-o", "./stream/image_stream.jpg", "-t", "999999999", "-tl", "100"];
+	var args = ["-w", "640", "-h", "480", "-o", "./stream/image_stream.jpg", "-t", "999999999", "-tl", "30"];
 	proc = spawn('raspistill', args);
 	
 	console.log('Watching for changes...');
@@ -71,4 +87,4 @@ function startStreaming(io) {
 	fs.watchFile('./stream/image_stream.jpg', function(current, previous) {
 		io.sockets.emit('liveStream', 'image_stream.jpg?_t=' + (Math.random() * 100000));
 	});
-}
+}*/
