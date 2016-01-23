@@ -1,0 +1,15 @@
+{
+  "author": "Evan Klein",
+  "name": "streamtv",
+  "description": "Live stream video conferencing from Apple TV.",
+  "version": "0.0.1",
+  "license": "Apache-2.0",
+  "main": "app.js",
+  "repository": { 
+  	"type" : "git",
+  	"url" : "https://github.com/Jonwlee/streamtv.git"
+  },
+  "dependencies": {
+    "express": "~4.0.0"
+  }
+}
