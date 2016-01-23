@@ -8,6 +8,8 @@ var server = http.createServer(app);
 app.use(express.static(__dirname + '/public'))
    .use(cookieParser());
 
+app.enable('trust proxy');
+
 server.listen(process.env.PORT || 8888, function(){
   console.log("Express server listening on port %d", this.address().port);
 });
