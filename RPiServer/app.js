@@ -53,8 +53,8 @@ function startStreaming(io) {
 		return;
 	}
 
-	var args = ["-w", "640", "-h", "480", "-o", "./stream/image_stream.jpg", "-t", "999999999", "-tl", "100"];
-	//proc = spawn('raspistill', args);
+	var args = ["-w", "640", "-h", "480", "-o", "./stream/image_stream.jpg", "-t", "999999999", "-tl", "10"];
+	proc = spawn('raspistill', args);
 	
 	console.log('Watching for changes...');
 	app.set('watchingFile', true);
