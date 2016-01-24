@@ -66,7 +66,7 @@ function startStreaming(io) {
 	  input     : proc.stdout,
 	  terminal  : false
 	}).on('line', function(line) {
-	  console.log(line);
+	  console.log(line.toString('base64'));
 	});
 }
 
