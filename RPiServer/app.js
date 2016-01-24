@@ -75,7 +75,7 @@ function startStreaming(io) {
 
 		if(chunk.readUInt8(chunk.length - 2) == 0xFF && chunk.readUInt8(chunk.length - 1) == 0xD9 && SOI) {
 			//console.timeEnd('one');
-			io.sockets.emit('liveStream', blob.toString("base64"));
+			io.sockets.emit('liveStreamPi', blob.toString("base64"));
 			SOI = false;
 
 			/*console.time('two');

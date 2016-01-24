@@ -9,8 +9,9 @@
   <body>
     <div class="container">
       <div class="row" style="margin:5%;">
-        <div class="stream-container" style="text-align:center">
-          <img id="stream" width="240" height="180" style="position:relative; display:inline; margin:5%;"/>
+        <div class="stream-container" style="text-align:center; position: relative; left: 0; top: 0;">
+          <img id="stream2" width="240" height="180" style="display:inline; margin:5%; position: relative; top: 0; left: 0;"/>
+          <img id="stream1" width="48" height="36" style="display:inline; margin:5%; position: absolute; top: 120px; left: 430px;"/>
         </div>
         <div class="button-container" style="text-align:center">
           <button id="startButton" class="btn btn-success btn-lg" style="position:relative; display:inline;">Start</button>
@@ -27,18 +28,24 @@
         console.log("connected");
         
         $('#startButton').click(function(){
-          $('#stream').css('visibility', 'visible');
+          $('#stream1').css('visibility', 'visible');
+          $('#stream2').css('visibility', 'visible');
           socket.emit("start-stream", "hello evan");
         });
 
         $('#stopButton').click(function(){
           socket.emit("end-stream", "hello evan");
-          setTimeout(function(){ $('#stream').attr('src', ''); }, 200);
+          setTimeout(function(){ $('#stream1').attr('src', ''); $('#stream2').attr('src', ''); }, 200);
         });        
       });
 
-      socket.on("liveStream", function(data){
-        $('#stream').attr('src', "data:image/png;base64,"+data);
+      socket.on("liveStreamPi", function(data){
+        $('#stream1').attr('src', "data:image/png;base64,"+data);
+        //socket.emit("time", "hello evan");
+      });
+
+      socket.on("liveStreamPhone", function(data){
+        $('#stream2').attr('src', "data:image/png;base64,"+data);
         //socket.emit("time", "hello evan");
       });
     </script>
