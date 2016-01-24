@@ -42,7 +42,7 @@ http.listen(3000, function() {
 });
 
 function stopStreaming() {
-	proc = spawn("killall", ["raspistill"]);
+	if(proc) proc.kill();
 }
 
 function startStreaming(io) {
@@ -52,7 +52,8 @@ function startStreaming(io) {
 	var SOIPos;
 
 	var args = [ "-w", "240", "-h", "180", "-t", "999999999", "-tl", "400", "-o", "-", "-q", "4", "-vf", "-hf", "-n"];
-	proc = spawn("raspistill", args);
+	
+	if(!proc) proc = spawn("raspistill", args);
 	
 	//console.time('one');
 	proc.stdout.on("data", function(chunk) {

@@ -8,10 +8,14 @@
 
   <body>
     <div class="container">
-      <div class="row" style="margin:10%;">
-        <img id="stream" style="position:relative; display:block; margin:2px;"/>
-        <button id="startButton" class="btn btn-success btn-lg" style="position:relative; display:inline;">Start</button>
-        <button id="stopButton" class="btn btn-danger btn-lg" style="position:relative; display:inline;">Stop</button>
+      <div class="row" style="margin:5%;">
+        <div class="stream-container" style="text-align:center">
+          <img id="stream" width="240" height="180" style="position:relative; display:inline; margin:5%;"/>
+        </div>
+        <div class="button-container" style="text-align:center">
+          <button id="startButton" class="btn btn-success btn-lg" style="position:relative; display:inline;">Start</button>
+          <button id="stopButton" class="btn btn-danger btn-lg" style="position:relative; display:inline;">Stop</button>
+        </div>
       </div>
     </div>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
@@ -23,12 +27,13 @@
         console.log("connected");
         
         $('#startButton').click(function(){
+          $('#stream').css('visibility', 'visible');
           socket.emit("start-stream", "hello evan");
         });
 
         $('#stopButton').click(function(){
           socket.emit("end-stream", "hello evan");
-          setTimeout(function(){ $('#stream').css('visibility', 'hidden'); }, 100);
+          setTimeout(function(){ $('#stream').attr('src', ''); }, 200);
         });        
       });
 
