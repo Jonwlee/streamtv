@@ -5,7 +5,7 @@ var io = require('socket.io')(http);
 var fs = require('fs');
 var path = require('path');
 var spawn = require('child_process').spawn;
-var readline      = require('readline');
+var readline = require('readline');
 var proc;
 
 app.use('/', express.static(path.join(__dirname, 'stream')));
@@ -32,6 +32,9 @@ io.on('connection', function(socket) {
 	socket.on('start-stream', function(data) {
 		startStreaming(io);
 	});
+	socket.on('end-stream', function(data) {
+		stopStreaming();
+	});
 });
 
 http.listen(3000, function() {
@@ -39,12 +42,7 @@ http.listen(3000, function() {
 });
 
 function stopStreaming() {
-	if (Object.keys(sockets).length == 0) {
-		app.set('watchingFile', false);
-		
-		if (proc) proc.kill();
-		fs.unwatchFile('./stream/image_stream.jpg');
-	}
+	proc = spawn("killall", ["raspistill"]);
 }
 
 function startStreaming(io) {
@@ -53,7 +51,7 @@ function startStreaming(io) {
 	var SOIChunk = false;
 	var SOIPos;
 
-	var args = [ "-w", "160", "-h", "120", "-t", "999999999", "-tl", "250", "-o", "-", "-q", "4", "-bm"];
+	var args = [ "-w", "160", "-h", "120", "-t", "999999999", "-tl", "250", "-o", "-", "-q", "4", "-vf", "-hf", "-n"];
 	proc = spawn("raspistill", args);
 	
 	proc.stdout.on("data", function(chunk) {
