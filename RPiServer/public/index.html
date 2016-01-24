@@ -18,14 +18,22 @@
       var socket = io.connect('http://192.168.1.38:3000');
 
       socket.on("connect", function(){
-        socket.emit("start-stream", "hello evan");
+        $('#startButton').click(function(){
+          socket.emit("start-stream", "hello evan");
+        });
+
+        $('#stopButton').click(function(){
+          socket.emit("end-stream", "hello evan");
+        });        
       });
 
       socket.on("liveStream", function(data){
         $('#stream').attr('src', "data:image/png;base64,"+data);
-        socket.emit("time", "hello evan");
+        //socket.emit("time", "hello evan");
       });
       
+
+
     </script>
   </body>
 </html>
