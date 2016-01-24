@@ -53,7 +53,7 @@ function startStreaming(io) {
 		return;
 	}
 
-	var args = ["-w", "320", "-h", "240", "-o", "-", "-t", "999999999", "-tl", "50"];
+	var args = ["-w", "320", "-h", "240", "-o", "-", "-t", "999999999", "-tl", "25"];
 	proc = spawn('raspistill', args);
 	
 	app.set('watchingFile', true);
