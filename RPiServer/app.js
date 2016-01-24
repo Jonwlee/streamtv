@@ -61,6 +61,14 @@ function stopStreaming() {
 	/*fs.watchFile('./stream/image_stream.jpg', function(current, previous) {
 		io.sockets.emit('liveStream', frameToBase64('./stream/image_stream.jpg'));
 	});
+
+	readline.createInterface({
+	  input     : proc.stdout,
+	  terminal  : false
+	}).on('line', function(line) {
+	  //console.log(new Buffer(line).toString('base64'));
+	  io.sockets.emit('liveStream', new Buffer(line).toString('base64'));
+	});
 }*/
 
 function frameToBase64(fileName){
@@ -68,21 +76,25 @@ function frameToBase64(fileName){
     return new Buffer(bitmap).toString('base64');
 }
 
-function startStreaming(io){
-    var  args = ["-w", "640", "-h", "480", "-t", "999999", "-tl", "100", "-vf", "-hf", "-o",  "-"];
+function startStreaming()
+{
+    var args = [ "-w", "640", "-h", "480", "-t", "999999", "-tl", "1000", "-vf", "-hf", "-o", "-" ];
  
-    var  blob;
-    var  SOI = false;
-    var  SOIChunk = false;
-    var  SOIPos;
+    var blob;
+    var SOI = false;
+    var SOIChunk = false;
+    var SOIPos;
  
-    child_process.spawn = proc ("raspistill", args);
+    proc = child_process.spawn("raspistill", args);
  
-    proc.stdout.on ("data", function (chunk) {
-        if(! SOI){
-            // Start of Image (SOI) with detection: 0xFF 0xD8
-            for(var  i = 0; i <chunk.length - 1; i ++){
-                if(chunk.readUInt8(i) == 0xFF chunk.readUInt8 && (i + 1) == 0xD8 &&! SOI){
+    proc.stdout.on("data", function(chunk) {
+        if (!SOI)
+        {
+            // Start of Image (SOI) detection with: 0xFF 0xD8
+            for (var i = 0; i < chunk.length - 1; i++)
+            {
+                if (chunk.readUInt8(i) == 0xFF && chunk.readUInt8(i + 1) == 0xD8 && !SOI)
+                {
                     SOI = true;
                     SOIChunk = true;
                     SOIPos = i;
@@ -90,26 +102,30 @@ function startStreaming(io){
             }
         }
  
-        if(SOI){
-            if  (SOIChunk){
-                blob = new  Buffer (chunk.slice (SOIPos, chunk.length));
+        if (SOI)
+        {
+            if (SOIChunk)
+            {
+                blob = new Buffer(chunk.slice(SOIPos, chunk.length));
+ 
                 SOIChunk = false;
             }
             else
-                Buffer.concat blob = ([blob chunk]);
+                blob = Buffer.concat([blob, chunk]);
         }
  
  
-        // End of Image (EOI) with detection: 0xFF 0xD9
-        if  (chunk.readUInt8(chunk.length - 2) == 0xFF chunk.readUInt8 && (chunk.length - 1) == && 0xD9 SOI){
-            // Append to data.picture the full picture of base64
-			io.sockets.emit('liveStream', blob.toString("base64"));
+        // End of Image (EOI) detection with: 0xFF 0xD9
+        if (chunk.readUInt8(chunk.length - 2) == 0xFF && chunk.readUInt8(chunk.length - 1) == 0xD9 && SOI)
+        {
+            // Append to data.picture the complete base64 of image
+            io.sockets.emit('liveStream', blob.toString("base64"));
  
             SOI = false;
         }
     });
  
-    proc.stderr.on("data", function (err) {
+    proc.stderr.on("data", function(err) {
         console.log(err.toString());
     })
 }
