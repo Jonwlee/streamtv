@@ -12,6 +12,7 @@
 		434C803D1C54C23300E32949 /* DataReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434C803B1C54C23300E32949 /* DataReceiver.swift */; };
 		434C804D1C54C9CD00E32949 /* SocketIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 434C804C1C54C9CD00E32949 /* SocketIO.framework */; };
 		434C804F1C54CA9D00E32949 /* SocketIO.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 434C804C1C54C9CD00E32949 /* SocketIO.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		434C80521C54D09E00E32949 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 434C80511C54D09E00E32949 /* AVFoundation.framework */; };
 		4367C3EF1C5318D80016E051 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4367C3EE1C5318D80016E051 /* AppDelegate.swift */; };
 		4367C3F11C5318D80016E051 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4367C3F01C5318D80016E051 /* ViewController.swift */; };
 		4367C3F41C5318D80016E051 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4367C3F21C5318D80016E051 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 		434C80381C54834600E32949 /* SocketIOClientSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIOClientSwift.framework; path = Carthage/Build/iOS/SocketIOClientSwift.framework; sourceTree = "<group>"; };
 		434C803B1C54C23300E32949 /* DataReceiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataReceiver.swift; sourceTree = "<group>"; };
 		434C804C1C54C9CD00E32949 /* SocketIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIO.framework; path = Carthage/Build/tvOS/SocketIO.framework; sourceTree = "<group>"; };
+		434C80511C54D09E00E32949 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
 		4367C3EB1C5318D80016E051 /* StreamTV-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "StreamTV-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4367C3EE1C5318D80016E051 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4367C3F01C5318D80016E051 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				434C80521C54D09E00E32949 /* AVFoundation.framework in Frameworks */,
 				434C80391C54834600E32949 /* SocketIOClientSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,6 +82,7 @@
 		434C80361C5482BA00E32949 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				434C80511C54D09E00E32949 /* AVFoundation.framework */,
 				434C804B1C54C9AC00E32949 /* tvOS */,
 				434C80371C5482C500E32949 /* iOS */,
 			);
