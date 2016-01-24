@@ -60,7 +60,7 @@ function stopStreaming() {
 	
 	/*fs.watchFile('./stream/image_stream.jpg', function(current, previous) {
 		io.sockets.emit('liveStream', frameToBase64('./stream/image_stream.jpg'));
-	});*/
+	});
 }*/
 
 function frameToBase64(fileName){
