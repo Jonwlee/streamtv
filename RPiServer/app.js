@@ -76,7 +76,7 @@ function frameToBase64(fileName){
     return new Buffer(bitmap).toString('base64');
 }
 
-function startStreaming()
+function startStreaming(io)
 {
     var args = [ "-w", "640", "-h", "480", "-t", "999999", "-tl", "1000", "-vf", "-hf", "-o", "-" ];
  
