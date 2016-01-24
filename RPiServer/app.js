@@ -28,8 +28,9 @@ io.on('connection', function(socket) {
 			fs.unwatchFile('./stream/image_stream.jpg');
 		}
 	});
-	socket.on('start-stream', function() {
+	socket.on('start-stream', function(data) {
 		startStreaming(io);
+		console.log("starting stream");
 	});
 });
 
@@ -48,19 +49,23 @@ function stopStreaming() {
 
 function startStreaming(io) {
 	if (app.get('watchingFile')) {
-		io.sockets.emit('liveStream', 'image_stream.jpg?_t=' + (Math.random() * 100000));
+		io.sockets.emit('liveStream', frameToBase64('./stream/image_stream.jpg'));
 		return;
 	}
 
 	var args = ["-w", "640", "-h", "480", "-o", "./stream/image_stream.jpg", "-t", "999999999", "-tl", "100"];
-	proc = spawn('raspistill', args);
+	//proc = spawn('raspistill', args);
 	
 	console.log('Watching for changes...');
 	app.set('watchingFile', true);
 	
 	fs.watchFile('./stream/image_stream.jpg', function(current, previous) {
-		io.sockets.emit('liveStream', 'image_stream.jpg?_t=' + (Math.random() * 100000));
+		console.log("change");
+		io.sockets.emit('liveStream', frameToBase64('./stream/image_stream.jpg'));
 	});
 }
 
-
+function frameToBase64(fileName){
+	var bitmap = fs.readFileSync(fileName);
+    return new Buffer(bitmap).toString('base64');
+}
