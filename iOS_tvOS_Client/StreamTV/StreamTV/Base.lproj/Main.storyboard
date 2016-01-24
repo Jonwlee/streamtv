@@ -15,11 +15,26 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Vw-bM-GhF">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2Vw-bM-GhF" secondAttribute="trailing" id="4cz-CS-Wph"/>
+                            <constraint firstItem="2Vw-bM-GhF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="EBd-bX-ukF"/>
+                            <constraint firstItem="2Vw-bM-GhF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="NHr-fq-kBd"/>
+                            <constraint firstItem="2Vw-bM-GhF" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="vRU-Y8-JTb"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="2Vw-bM-GhF" id="MWo-P1-QO4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="396" y="302"/>
         </scene>
     </scenes>
 </document>

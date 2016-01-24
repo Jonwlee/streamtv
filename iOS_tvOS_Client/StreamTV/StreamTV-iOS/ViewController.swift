@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SocketIOClientSwift
 
 class ViewController: UIViewController {
 
@@ -16,31 +15,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let socket = SocketIOClient(socketURL: "10.251.94.93:3000", options: [.Log(true), .ForcePolling(true)])
-        
-        socket.on("connect") {data, ack in
-            print("socket connected")
-            socket.emit("start-stream", "hello evan")
+        DataReceiver.sharedReceiver.receiveImages { (image: UIImage?) -> Void in
+            self.imageView.image = image
         }
-
-        socket.on("liveStream") {data, ack in
-            if let bytes = data[0] as? String {
-                let data = NSData(base64EncodedString: bytes, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
-                self.imageView.image = UIImage(data: data!)
-            }
-        }
-        
-        socket.connect()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    func websocketDidConnect(socket: WebSocket) {
-        
-    }
-
 }
-

@@ -1,0 +1,2 @@
+[submodule "Carthage/Checkouts/socket.io-client-swift"]
+	url = https://github.com/Bogidon/socket.io-client-swift.git

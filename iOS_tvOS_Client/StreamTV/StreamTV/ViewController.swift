@@ -10,10 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
+    
     override func viewDidLoad() {
-        @IBOutlet weak var imageView: UIImageView!
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        DataReceiver.sharedReceiver.receiveImages { (image: UIImage?) -> Void in
+            self.imageView.image = image
+        }
     }
 
     override func didReceiveMemoryWarning() {
