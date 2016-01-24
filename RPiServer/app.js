@@ -5,6 +5,7 @@ var io = require('socket.io')(http);
 var fs = require('fs');
 var path = require('path');
 var spawn = require('child_process').spawn;
+var readline      = require('readline');
 var proc;
 
 app.use('/', express.static(path.join(__dirname, 'stream')));
@@ -30,7 +31,6 @@ io.on('connection', function(socket) {
 	});
 	socket.on('start-stream', function(data) {
 		startStreaming(io);
-		console.log("starting stream");
 	});
 });
 
@@ -53,15 +53,20 @@ function startStreaming(io) {
 		return;
 	}
 
-	var args = ["-w", "640", "-h", "480", "-o", "./stream/image_stream.jpg", "-t", "999999999", "-tl", "10"];
+	var args = ["-w", "320", "-h", "240", "-o", "-", "-t", "999999999", "-tl", "10"];
 	proc = spawn('raspistill', args);
 	
-	console.log('Watching for changes...');
 	app.set('watchingFile', true);
 	
-	fs.watchFile('./stream/image_stream.jpg', function(current, previous) {
-		console.log("change");
+	/*fs.watchFile('./stream/image_stream.jpg', function(current, previous) {
 		io.sockets.emit('liveStream', frameToBase64('./stream/image_stream.jpg'));
+	});*/
+
+	readline.createInterface({
+	  input     : proc.stdout,
+	  terminal  : false
+	}).on('line', function(line) {
+	  console.log(line);
 	});
 }
 
