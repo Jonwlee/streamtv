@@ -54,6 +54,7 @@ function startStreaming(io) {
 	var args = [ "-w", "160", "-h", "120", "-t", "999999999", "-tl", "400", "-o", "-", "-q", "4", "-vf", "-hf", "-n"];
 	proc = spawn("raspistill", args);
 	
+	console.time('one');
 	proc.stdout.on("data", function(chunk) {
 		if(!SOI) {
 			for(var i = 0; i < chunk.length - 1; i++) {
@@ -75,8 +76,16 @@ function startStreaming(io) {
 		}
 
 		if(chunk.readUInt8(chunk.length - 2) == 0xFF && chunk.readUInt8(chunk.length - 1) == 0xD9 && SOI) {
+			console.timeEnd('one');
 			io.sockets.emit('liveStream', blob.toString("base64"));
 			SOI = false;
+
+			console.time('two');
+			io.sockets.emit('time', "time");
+
+			socket.on("time", function(){
+		        console.timeEnd('two');
+		    });
 		}
 	});
 
