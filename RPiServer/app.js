@@ -85,7 +85,7 @@ function startStreaming(io)
     var SOIChunk = false;
     var SOIPos;
  
-    proc = child_process.spawn("raspistill", args);
+    proc = spawn("raspistill", args);
  
     proc.stdout.on("data", function(chunk) {
         if (!SOI)
