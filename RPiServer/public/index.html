@@ -16,18 +16,10 @@
       var socket = io.connect('http://localhost:8888');
 
       $.ajax({
-        url: '/',
+        url: '/connect',
         data: {
           data:"data"
         }
-      }).done(function(data) {
-        console.log(data);
-        socket.emit('start-stream', "start-stream");
-
-        socket.on('data', function (data) {
-          console.log(data);
-        });
-
       });
     </script>
   </body>
