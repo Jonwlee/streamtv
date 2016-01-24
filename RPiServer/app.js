@@ -77,7 +77,7 @@ function startStreaming(io) {
     var SOIChunk = false;
     var SOIPos;
  
-	var args = [ "-w", "320", "-h", "240", "-t", "999999999", "-tl", "1", "-o", "-" ];
+	var args = [ "-w", "160", "-h", "120", "-t", "999999999", "-tl", "1000", "-o", "-" ];
     proc = spawn("raspistill", args);
  
     proc.stdout.on("data", function(chunk) {
