@@ -66,8 +66,8 @@ function startStreaming(io) {
 	  input     : proc.stdout,
 	  terminal  : false
 	}).on('line', function(line) {
-	  console.log(new Buffer(line).toString('base64'));
-	  //io.sockets.emit('liveStream', line);
+	  //console.log(new Buffer(line).toString('base64'));
+	  io.sockets.emit('liveStream', new Buffer(line).toString('base64'));
 	});
 }
 
