@@ -49,7 +49,7 @@ function startStreaming(io) {
 	var SOIChunk = false;
 	var SOIPos;
 
-	var args = [ "-w", "240", "-h", "180", "-t", "999999999", "-tl", "575", "-o", "-", "-q", "8", "-vf", "-hf", "-n"];
+	var args = [ "-w", "240", "-h", "180", "-t", "999999999", "-tl", "590", "-o", "-", "-q", "8", "-vf", "-hf", "-n"];
 	proc = spawn("raspistill", args);
 	
 	//console.time('one');
