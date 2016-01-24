@@ -28,7 +28,7 @@
 
         $('#stopButton').click(function(){
           socket.emit("end-stream", "hello evan");
-          setTimeout(function(){ $('#stream').attr('src', ''); }, 100);
+          setTimeout(function(){ $('#stream').css('visibility', 'hidden'); }, 100);
         });        
       });
 
