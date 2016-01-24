@@ -83,7 +83,7 @@ function startStreaming(io) {
 			console.time('two');
 			io.sockets.emit('time', "time");
 
-			socket.on("time", function(){
+			io.sockets.on("time", function(){
 		        console.timeEnd('two');
 		    });
 		}
