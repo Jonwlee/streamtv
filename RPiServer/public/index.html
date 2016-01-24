@@ -8,18 +8,19 @@
 
   <body>
     <div class="container">
-      <p>streamtv streaming server</p>
+      <img id="stream"/>
     </div>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script> 
     <script type="text/javascript">
-      var socket = io.connect('http://localhost:8888');
+      var socket = io.connect('http://192.168.1.35:3000');
 
-      $.ajax({
-        url: '/connect',
-        data: {
-          data:"data"
-        }
+      socket.on("connect", function(){
+        socket.emit("start-stream", "hello evan")
+      });
+
+      socket.on("liveStream", function(data){
+        $('#stream').attr('src', "data:image/png;base64,"+data);
       });
     </script>
   </body>

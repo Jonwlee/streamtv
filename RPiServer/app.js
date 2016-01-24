@@ -47,37 +47,13 @@ function stopStreaming() {
 	}
 }
 
-/*function startStreaming(io) {
-	if (app.get('watchingFile')) {
-		io.sockets.emit('liveStream', frameToBase64('./stream/image_stream.jpg'));
-		return;
-	}
-
-	var args = ["-w", "320", "-h", "240", "-o", "-", "-t", "999999999", "-tl", "25"];
-	proc = spawn('raspistill', args);
-	
-	app.set('watchingFile', true);
-	
-	/*fs.watchFile('./stream/image_stream.jpg', function(current, previous) {
-		io.sockets.emit('liveStream', frameToBase64('./stream/image_stream.jpg'));
-	});
-
-	readline.createInterface({
-	  input     : proc.stdout,
-	  terminal  : false
-	}).on('line', function(line) {
-	  //console.log(new Buffer(line).toString('base64'));
-	  io.sockets.emit('liveStream', new Buffer(line).toString('base64'));
-	});
-}*/
-
 function startStreaming(io) {
 	var blob;
 	var SOI = false;
 	var SOIChunk = false;
 	var SOIPos;
 
-	var args = [ "-w", "160", "-h", "120", "-t", "999999999", "-tl", "750", "-o", "-", "-q", "4"];
+	var args = [ "-w", "160", "-h", "120", "-t", "999999999", "-tl", "500", "-o", "-", "-q", "4"];
 	proc = spawn("raspistill", args);
 	
 	proc.stdout.on("data", function(chunk) {
