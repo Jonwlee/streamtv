@@ -23,10 +23,7 @@ io.on('connection', function(socket) {
 		delete sockets[socket.id];
 		
 		if (Object.keys(sockets).length == 0) {
-			app.set('watchingFile', false);
-			
 			if (proc) proc.kill();
-			fs.unwatchFile('./stream/image_stream.jpg');
 		}
 	});
 	socket.on('start-stream', function(data) {
@@ -52,8 +49,7 @@ function startStreaming(io) {
 	var SOIPos;
 
 	var args = [ "-w", "240", "-h", "180", "-t", "999999999", "-tl", "400", "-o", "-", "-q", "4", "-vf", "-hf", "-n"];
-	
-	if(!proc) proc = spawn("raspistill", args);
+	proc = spawn("raspistill", args);
 	
 	//console.time('one');
 	proc.stdout.on("data", function(chunk) {
