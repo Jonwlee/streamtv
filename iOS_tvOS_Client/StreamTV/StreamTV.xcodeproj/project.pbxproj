@@ -7,19 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		434C80391C54834600E32949 /* SocketIOClientSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 434C80381C54834600E32949 /* SocketIOClientSwift.framework */; };
 		4367C3EF1C5318D80016E051 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4367C3EE1C5318D80016E051 /* AppDelegate.swift */; };
 		4367C3F11C5318D80016E051 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4367C3F01C5318D80016E051 /* ViewController.swift */; };
 		4367C3F41C5318D80016E051 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4367C3F21C5318D80016E051 /* Main.storyboard */; };
 		4367C3F61C5318D80016E051 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4367C3F51C5318D80016E051 /* Assets.xcassets */; };
+		4367C4041C531BE80016E051 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4367C4031C531BE80016E051 /* AppDelegate.swift */; };
+		4367C4061C531BE80016E051 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4367C4051C531BE80016E051 /* ViewController.swift */; };
+		4367C4091C531BE80016E051 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4367C4071C531BE80016E051 /* Main.storyboard */; };
+		4367C40B1C531BE80016E051 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4367C40A1C531BE80016E051 /* Assets.xcassets */; };
+		4367C40E1C531BE80016E051 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4367C40C1C531BE80016E051 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4367C3EB1C5318D80016E051 /* StreamTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StreamTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		434C80381C54834600E32949 /* SocketIOClientSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIOClientSwift.framework; path = Carthage/Build/iOS/SocketIOClientSwift.framework; sourceTree = "<group>"; };
+		4367C3EB1C5318D80016E051 /* StreamTV-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "StreamTV-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4367C3EE1C5318D80016E051 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4367C3F01C5318D80016E051 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4367C3F31C5318D80016E051 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4367C3F51C5318D80016E051 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4367C3F71C5318D80016E051 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4367C4011C531BE80016E051 /* StreamTV-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "StreamTV-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4367C4031C531BE80016E051 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4367C4051C531BE80016E051 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4367C4081C531BE80016E051 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4367C40A1C531BE80016E051 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4367C40D1C531BE80016E051 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4367C40F1C531BE80016E051 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,26 +44,53 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4367C3FE1C531BE80016E051 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				434C80391C54834600E32949 /* SocketIOClientSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		434C80361C5482BA00E32949 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				434C80371C5482C500E32949 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		434C80371C5482C500E32949 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				434C80381C54834600E32949 /* SocketIOClientSwift.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
 		4367C3E21C5318D80016E051 = {
 			isa = PBXGroup;
 			children = (
-				4367C3ED1C5318D80016E051 /* StreamTV */,
+				4367C3ED1C5318D80016E051 /* StreamTV-tvOS */,
+				4367C4021C531BE80016E051 /* StreamTV-iOS */,
 				4367C3EC1C5318D80016E051 /* Products */,
+				434C80361C5482BA00E32949 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		4367C3EC1C5318D80016E051 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4367C3EB1C5318D80016E051 /* StreamTV.app */,
+				4367C3EB1C5318D80016E051 /* StreamTV-tvOS.app */,
+				4367C4011C531BE80016E051 /* StreamTV-iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4367C3ED1C5318D80016E051 /* StreamTV */ = {
+		4367C3ED1C5318D80016E051 /* StreamTV-tvOS */ = {
 			isa = PBXGroup;
 			children = (
 				4367C3EE1C5318D80016E051 /* AppDelegate.swift */,
@@ -58,15 +99,29 @@
 				4367C3F51C5318D80016E051 /* Assets.xcassets */,
 				4367C3F71C5318D80016E051 /* Info.plist */,
 			);
+			name = "StreamTV-tvOS";
 			path = StreamTV;
+			sourceTree = "<group>";
+		};
+		4367C4021C531BE80016E051 /* StreamTV-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				4367C4031C531BE80016E051 /* AppDelegate.swift */,
+				4367C4051C531BE80016E051 /* ViewController.swift */,
+				4367C4071C531BE80016E051 /* Main.storyboard */,
+				4367C40A1C531BE80016E051 /* Assets.xcassets */,
+				4367C40C1C531BE80016E051 /* LaunchScreen.storyboard */,
+				4367C40F1C531BE80016E051 /* Info.plist */,
+			);
+			path = "StreamTV-iOS";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4367C3EA1C5318D80016E051 /* StreamTV */ = {
+		4367C3EA1C5318D80016E051 /* StreamTV-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4367C3FA1C5318D80016E051 /* Build configuration list for PBXNativeTarget "StreamTV" */;
+			buildConfigurationList = 4367C3FA1C5318D80016E051 /* Build configuration list for PBXNativeTarget "StreamTV-tvOS" */;
 			buildPhases = (
 				4367C3E71C5318D80016E051 /* Sources */,
 				4367C3E81C5318D80016E051 /* Frameworks */,
@@ -76,9 +131,27 @@
 			);
 			dependencies = (
 			);
-			name = StreamTV;
+			name = "StreamTV-tvOS";
 			productName = StreamTV;
-			productReference = 4367C3EB1C5318D80016E051 /* StreamTV.app */;
+			productReference = 4367C3EB1C5318D80016E051 /* StreamTV-tvOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4367C4001C531BE80016E051 /* StreamTV-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4367C4101C531BE80016E051 /* Build configuration list for PBXNativeTarget "StreamTV-iOS" */;
+			buildPhases = (
+				4367C3FD1C531BE80016E051 /* Sources */,
+				4367C3FE1C531BE80016E051 /* Frameworks */,
+				4367C3FF1C531BE80016E051 /* Resources */,
+				434C803A1C54835600E32949 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "StreamTV-iOS";
+			productName = "StreamTV-iOS";
+			productReference = 4367C4011C531BE80016E051 /* StreamTV-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -92,6 +165,9 @@
 				ORGANIZATIONNAME = "Bogdan Vitoc";
 				TargetAttributes = {
 					4367C3EA1C5318D80016E051 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					4367C4001C531BE80016E051 = {
 						CreatedOnToolsVersion = 7.2;
 					};
 				};
@@ -109,7 +185,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4367C3EA1C5318D80016E051 /* StreamTV */,
+				4367C3EA1C5318D80016E051 /* StreamTV-tvOS */,
+				4367C4001C531BE80016E051 /* StreamTV-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -124,7 +201,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4367C3FF1C531BE80016E051 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4367C40E1C531BE80016E051 /* LaunchScreen.storyboard in Resources */,
+				4367C40B1C531BE80016E051 /* Assets.xcassets in Resources */,
+				4367C4091C531BE80016E051 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		434C803A1C54835600E32949 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SocketIOClientSwift.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4367C3E71C5318D80016E051 /* Sources */ = {
@@ -133,6 +237,15 @@
 			files = (
 				4367C3F11C5318D80016E051 /* ViewController.swift in Sources */,
 				4367C3EF1C5318D80016E051 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4367C3FD1C531BE80016E051 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4367C4061C531BE80016E051 /* ViewController.swift in Sources */,
+				4367C4041C531BE80016E051 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +258,22 @@
 				4367C3F31C5318D80016E051 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4367C4071C531BE80016E051 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4367C4081C531BE80016E051 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4367C40C1C531BE80016E051 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4367C40D1C531BE80016E051 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -238,7 +367,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = StreamTV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vitocdev.StreamTV;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vitocdev.StreamTV-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -250,8 +379,46 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = StreamTV/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vitocdev.StreamTV;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vitocdev.StreamTV-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4367C4111C531BE80016E051 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "StreamTV-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vitocdev.StreamTV-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4367C4121C531BE80016E051 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "StreamTV-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vitocdev.StreamTV-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -267,13 +434,23 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4367C3FA1C5318D80016E051 /* Build configuration list for PBXNativeTarget "StreamTV" */ = {
+		4367C3FA1C5318D80016E051 /* Build configuration list for PBXNativeTarget "StreamTV-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4367C3FB1C5318D80016E051 /* Debug */,
 				4367C3FC1C5318D80016E051 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4367C4101C531BE80016E051 /* Build configuration list for PBXNativeTarget "StreamTV-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4367C4111C531BE80016E051 /* Debug */,
+				4367C4121C531BE80016E051 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
