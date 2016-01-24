@@ -39,7 +39,7 @@ http.listen(3000, function() {
 });
 
 function stopStreaming() {
-	if(proc) proc.kill();
+	proc.kill();
 }
 
 function startStreaming(io) {
