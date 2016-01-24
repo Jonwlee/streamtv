@@ -23,7 +23,8 @@ io.on('connection', function(socket) {
 		delete sockets[socket.id];
 		
 		if (Object.keys(sockets).length == 0) {
-			if (proc) proc.kill();
+			app.set('watchingFile', false);
+			proc = spawn("killall", ["raspistill"]);
 		}
 	});
 	socket.on('start-stream', function(data) {
@@ -39,7 +40,7 @@ http.listen(3000, function() {
 });
 
 function stopStreaming() {
-	proc.kill();
+	proc = spawn("killall", ["raspistill"]);
 }
 
 function startStreaming(io) {
