@@ -53,7 +53,7 @@ function startStreaming(io) {
 		return;
 	}
 
-	var args = ["-w", "320", "-h", "240", "-o", "-", "-t", "999999999", "-tl", "10"];
+	var args = ["-w", "320", "-h", "240", "-o", "-", "-t", "999999999", "-tl", "50"];
 	proc = spawn('raspistill', args);
 	
 	app.set('watchingFile', true);
@@ -66,7 +66,8 @@ function startStreaming(io) {
 	  input     : proc.stdout,
 	  terminal  : false
 	}).on('line', function(line) {
-	  io.sockets.emit('liveStream', line);
+	  console.log(new Buffer(line).toString('base64'));
+	  //io.sockets.emit('liveStream', line);
 	});
 }
 
